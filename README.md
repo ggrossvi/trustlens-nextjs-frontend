@@ -1,5 +1,19 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+### TrustLens UI Previews
+
+**Dashboard**
+![TrustLens Dashboard](./public/images/dashboard.png)
+
+**Query Sandbox**
+![Query Sandbox](./public/images/query-sandbox.png)
+
+**Knowledge Base**
+![Knowledge Base](./public/images/knowledge-base.png)
+
+**Validate Document**
+![Validate Document](./public/images/validate-document.png)
+
 ## Getting Started
 
 First, run the development server:
