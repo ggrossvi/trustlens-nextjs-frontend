@@ -3,16 +3,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ### TrustLens UI Previews
 
 **Dashboard**
-![TrustLens Dashboard](./public/images/dashboard.png)
+![TrustLens Dashboard](./public/images/Dashboard.png)
 
 **Query Sandbox**
-![Query Sandbox](./public/images/query-sandbox.png)
+![Query Sandbox](./public/images/QuerySandbox.png)
 
 **Knowledge Base**
-![Knowledge Base](./public/images/knowledge-base.png)
+![Knowledge Base](./public/images/KnowledgeBase.png)
 
 **Validate Document**
-![Validate Document](./public/images/validate-document.png)
+![Validate Document](./public/images/ValidateDocument.png)
 
 ## Getting Started
 
