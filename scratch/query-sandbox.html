@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Space+Grotesk:wght@600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#283044",
+                        "outline-variant": "#3e484f",
+                        "on-primary": "#00354a",
+                        "surface": "#0b1326",
+                        "tertiary-container": "#30c88f",
+                        "on-tertiary": "#003824",
+                        "tertiary": "#56e5a9",
+                        "surface-variant": "#2d3449",
+                        "surface-container-lowest": "#060e20",
+                        "secondary": "#bdc2ff",
+                        "surface-container": "#171f33",
+                        "on-secondary": "#131e8c",
+                        "surface-container-high": "#222a3d",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "background": "#0b1326",
+                        "on-secondary-fixed-variant": "#2f3aa3",
+                        "primary-container": "#38bdf8",
+                        "primary": "#8ed5ff",
+                        "secondary-container": "#2f3aa3",
+                        "on-primary-fixed": "#001e2c",
+                        "on-secondary-fixed": "#000767",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-tint": "#7bd0ff",
+                        "on-background": "#dae2fd",
+                        "outline": "#87929a",
+                        "on-tertiary-fixed": "#002113",
+                        "on-surface-variant": "#bdc8d1",
+                        "surface-container-highest": "#2d3449",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#7bd0ff",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#0b1326",
+                        "on-primary-container": "#004965",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#a8afff",
+                        "surface-container-low": "#131b2e",
+                        "secondary-fixed": "#e0e0ff",
+                        "primary-fixed": "#c4e7ff",
+                        "on-tertiary-container": "#004e34",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-surface": "#dae2fd",
+                        "on-primary-fixed-variant": "#004c69",
+                        "surface-bright": "#31394d",
+                        "inverse-surface": "#dae2fd",
+                        "inverse-primary": "#00668a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "xs": "0.5rem",
+                        "md": "1.5rem",
+                        "sm": "1rem",
+                        "margin": "2rem",
+                        "xl": "4rem",
+                        "unit": "4px",
+                        "gutter": "1.5rem",
+                        "lg": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Space Grotesk"],
+                        "headline-xl": ["Inter"],
+                        "code-md": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "code-md": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #0b1326; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-layering { background-color: rgba(23, 31, 51, 0.5); }
+    </style>
+</head>
+<body class="flex min-h-screen text-on-surface font-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="h-screen sticky left-0 w-64 border-r border-slate-800 bg-slate-950 flex flex-col py-6">
+<div class="px-6 mb-8">
+<h1 class="text-lg font-bold tracking-tighter text-slate-50">TrustLens AI</h1>
+<p class="text-[10px] uppercase tracking-widest text-sky-400 font-semibold mt-1">v3.0 Dashboard</p>
+</div>
+<nav class="flex-grow space-y-1">
+<!-- Active Tab: Query Sandbox -->
+<a class="text-sky-400 font-semibold bg-slate-900/50 border-r-2 border-sky-400 px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-inter text-sm tracking-tight">Query Sandbox</span>
+</a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-inter text-sm tracking-tight">Validate Document</span>
+</a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined">database</span>
+<span class="font-inter text-sm tracking-tight">Knowledge Base</span>
+</a></nav>
+<div class="mt-auto border-t border-slate-800 pt-4 space-y-1">
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-inter text-sm tracking-tight">Settings</span>
+</a>
+<a class="text-slate-400 px-4 py-3 flex items-center gap-3 hover:text-slate-100 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-inter text-sm tracking-tight">Support</span>
+</a>
+<div class="px-4 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high border border-slate-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold text-slate-200 truncate">Admin User</p>
+<p class="text-[10px] text-slate-500 truncate">Enterprise Tier</p>
+</div>
+</div>
+</div>
+</aside>
+<div class="flex-grow flex flex-col">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md flex justify-between items-center h-16 px-8">
+<div class="flex items-center gap-4">
+<span class="font-inter uppercase text-xs font-semibold tracking-widest text-sky-400">Sandbox Explorer</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="bg-slate-900 border border-slate-800 rounded-lg pl-10 pr-4 py-1.5 text-[10px] tracking-widest font-semibold focus:outline-none focus:border-sky-400 w-64 transition-all" placeholder="SEARCH SESSIONS..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-sky-300 transition-colors cursor-pointer active:scale-95">notifications</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-sky-300 transition-colors cursor-pointer active:scale-95">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="p-8 max-w-7xl w-full mx-auto space-y-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-caps text-label-caps text-sky-400 mb-2 block">RAG OPTIMIZATION ENVIRONMENT</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Query Sandbox</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-body-sm font-semibold hover:border-slate-500 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">history</span>
+                        View History
+                    </button>
+<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-lg text-body-sm font-bold flex items-center gap-2 hover:brightness-110 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        EXECUTE QUERY
+                    </button>
+</div>
+</div>
+<!-- Query Input & Parameters Bento -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Primary Query Input -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container border border-slate-800 rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-400">prompt_suggestion</span>
+<span class="font-label-caps text-label-caps text-slate-400">QUERY INPUT</span>
+</div>
+<div class="flex items-center gap-4">
+<select class="bg-transparent border-none text-xs font-semibold text-slate-400 focus:ring-0">
+<option>GPT-4o-Turbo</option>
+<option>Claude 3.5 Sonnet</option>
+</select>
+</div>
+</div>
+<textarea class="w-full bg-slate-950 border border-slate-800 rounded-lg p-4 font-body-md text-on-surface focus:border-sky-400 focus:ring-0 transition-colors placeholder-slate-600" placeholder="Ask a question about the indexed document corpus..." rows="4"></textarea>
+<div class="mt-4 flex gap-2">
+<span class="bg-sky-400/10 text-sky-400 text-[10px] font-bold px-2 py-1 rounded border border-sky-400/20">#FINANCE_REPORTS</span>
+<span class="bg-sky-400/10 text-sky-400 text-[10px] font-bold px-2 py-1 rounded border border-sky-400/20">#Q4_2023</span>
+</div>
+</div>
+<!-- Parameters Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container border border-slate-800 rounded-xl p-6">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-sky-400">settings_input_component</span>
+<span class="font-label-caps text-label-caps text-slate-400">RETRIEVAL PARAMS</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-xs font-semibold text-slate-300">Top-K Snippets</span>
+<span class="text-xs font-code-md text-sky-400">5</span>
+</div>
+<input class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-400" type="range"/>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-xs font-semibold text-slate-300">Similarity Threshold</span>
+<span class="text-xs font-code-md text-sky-400">0.82</span>
+</div>
+<input class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-400" type="range"/>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-900 rounded border border-slate-800">
+<span class="text-xs font-semibold text-slate-300">Hybrid Search</span>
+<div class="w-10 h-5 bg-sky-400 rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-slate-950 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Analysis Dashboard -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Result & Snippets -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- LLM Answer -->
+<div class="bg-surface-container-high border border-slate-700 rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-700 flex justify-between items-center bg-slate-800/30">
+<span class="font-label-caps text-label-caps text-slate-300">SYNTHESIZED RESPONSE</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-sm text-slate-500 cursor-pointer hover:text-slate-200">content_copy</span>
+<span class="material-symbols-outlined text-sm text-slate-500 cursor-pointer hover:text-slate-200">share</span>
+</div>
+</div>
+<div class="p-6">
+<p class="font-body-md text-slate-200 leading-relaxed">
+                                Based on the Q4 2023 Financial Statement (Doc #8821), the net revenue growth was driven by a <mark class="bg-sky-400/20 text-sky-400 border-b border-sky-400 px-0.5">14.2% increase in recurring SaaS subscriptions</mark> and a significant reduction in operational overhead within the EMEA region. The primary risk factor identified remains the volatility of energy pricing in Central Europe.
+                            </p>
+</div>
+</div>
+<!-- Evidence Explorer -->
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">source</span>
+<span class="font-label-caps text-label-caps text-slate-400">SOURCE EVIDENCE SNIPPETS (3)</span>
+</div>
+<!-- Snippet 1 -->
+<div class="bg-surface-container border border-slate-800 rounded-xl p-5 hover:border-slate-600 transition-colors group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-slate-950 border border-slate-800 text-[10px] font-code-md text-slate-400 rounded">REF-001</span>
+<h4 class="text-sm font-bold text-slate-200">FY23_Annual_Report_Final.pdf</h4>
+</div>
+<span class="text-xs font-code-md text-tertiary">Score: 0.94</span>
+</div>
+<p class="text-sm text-slate-400 font-code-md leading-relaxed">
+                                "...recorded a total recurring revenue of $44.2M, representing a <span class="text-on-surface font-bold">14.2% YoY increase</span> from the previous fiscal year. This growth is attributed primarily to the expansion of Enterprise seats..."
+                            </p>
+<div class="mt-4 pt-4 border-t border-slate-800 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="text-[10px] text-slate-500 italic">Extracted from Page 12, Paragraph 4</span>
+<button class="text-[10px] font-bold text-sky-400 flex items-center gap-1">VIEW DOCUMENT <span class="material-symbols-outlined text-[12px]">open_in_new</span></button>
+</div>
+</div>
+<!-- Snippet 2 -->
+<div class="bg-surface-container border border-slate-800 rounded-xl p-5 hover:border-slate-600 transition-colors group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<span class="px-2 py-1 bg-slate-950 border border-slate-800 text-[10px] font-code-md text-slate-400 rounded">REF-002</span>
+<h4 class="text-sm font-bold text-slate-200">EMEA_Regional_Performance.xlsx</h4>
+</div>
+<span class="text-xs font-code-md text-tertiary">Score: 0.88</span>
+</div>
+<p class="text-sm text-slate-400 font-code-md leading-relaxed">
+                                "Operational expenses in EMEA dropped from 18% of revenue to 14.5% following the <span class="text-on-surface font-bold">automation of regional compliance workflows</span> and staff consolidation."
+                            </p>
+</div>
+</div>
+</div>
+<!-- Reliability Scores -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Faithfulness Radar/Gauge -->
+<div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+<span class="font-label-caps text-label-caps text-slate-400 block mb-6">TRUST METRICS</span>
+<div class="space-y-6">
+<!-- Metric 1 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-semibold text-slate-200">Faithfulness</span>
+<span class="text-xl font-bold text-tertiary">98%</span>
+</div>
+<div class="w-full h-2 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+<div class="h-full bg-tertiary w-[98%] shadow-[0_0_10px_rgba(86,229,169,0.3)]"></div>
+</div>
+<p class="text-[10px] text-slate-500 mt-2">Zero hallucinations detected compared to source text.</p>
+</div>
+<!-- Metric 2 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-semibold text-slate-200">Answer Relevance</span>
+<span class="text-xl font-bold text-sky-400">85%</span>
+</div>
+<div class="w-full h-2 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+<div class="h-full bg-sky-400 w-[85%] shadow-[0_0_10px_rgba(56,189,248,0.3)]"></div>
+</div>
+<p class="text-[10px] text-slate-500 mt-2">Highly relevant to query intent but missed minor sub-point.</p>
+</div>
+<!-- Metric 3 -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-semibold text-slate-200">Context Precision</span>
+<span class="text-xl font-bold text-secondary">91%</span>
+</div>
+<div class="w-full h-2 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
+<div class="h-full bg-secondary w-[91%] shadow-[0_0_10px_rgba(189,194,255,0.3)]"></div>
+</div>
+<p class="text-[10px] text-slate-500 mt-2">Retrieved snippets are highly specific to the question.</p>
+</div>
+</div>
+</div>
+<!-- Knowledge Base Context -->
+<div class="bg-surface-container border border-slate-800 rounded-xl overflow-hidden">
+<div class="p-6">
+<span class="font-label-caps text-label-caps text-slate-400 block mb-4">ACTIVE INDEX</span>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-slate-900 border border-slate-800 rounded-lg flex items-center justify-center text-sky-400">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-200">Financial_Corp_V4</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tight">8.4GB • 1,200 Documents</p>
+</div>
+</div>
+<div class="relative w-full h-32 rounded-lg overflow-hidden border border-slate-800">
+<div class="absolute inset-0 bg-slate-950">
+<div class="w-full h-full opacity-30" style="background-image: radial-gradient(#38bdf8 1px, transparent 1px); background-size: 16px 16px;"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<p class="text-[10px] font-bold text-slate-500 uppercase">Vector Cloud Map</p>
+<div class="flex gap-1 justify-center mt-2">
+<div class="w-1 h-1 bg-sky-400 rounded-full animate-pulse"></div>
+<div class="w-1 h-1 bg-sky-400 rounded-full delay-150 animate-pulse"></div>
+<div class="w-1 h-1 bg-tertiary rounded-full delay-300 animate-pulse"></div>
+</div>
+</div>
+</div>
+<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-screen" data-alt="abstract visualization of a 3d neural network nodes and connections with blue neon glowing lines on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzNj4ZaWr4m4XSVIAaHNjp537F_RcfWR2MJhDcigMERZBJqRb2qm9_4qUdxD61SnyviUtpZ4uFTl-rH2cbrZJNEFuQxapPupDqxCgwZjsOccaKvWC4-9o3bYk4rvKYbQF8tsw_wglEwcEOm0lPbSbiG7JS7kRDJKbmT54lIf2rZwa95RGi99eZsNSQuE4PrGCUNusNxLXg6jTngZxxYMqzQO3u1_1CT4suH0VuKb4t7Po5C6l7AvoS80ozwDwUSfvYVzmmW6F5T1g"/>
+</div>
+</div>
+</div>
+<!-- Execution Details -->
+<div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Latency</p>
+<p class="text-sm font-code-md text-slate-300">1.24s</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Tokens</p>
+<p class="text-sm font-code-md text-slate-300">412</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Retrieval</p>
+<p class="text-sm font-code-md text-slate-300">Vector+BM25</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Provider</p>
+<p class="text-sm font-code-md text-slate-300">OpenAI (Azure)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Trace Log -->
+<div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+<div class="px-6 py-3 border-b border-slate-800 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-slate-500">list_alt</span>
+<span class="font-label-caps text-[10px] text-slate-400 uppercase tracking-widest">SYSTEM EXECUTION TRACE</span>
+</div>
+<button class="text-[10px] text-sky-400 font-bold hover:underline">EXPORT LOGS</button>
+</div>
+<div class="p-4 font-code-md text-[12px] space-y-2 bg-slate-950">
+<div class="flex gap-4">
+<span class="text-slate-600">[14:22:01]</span>
+<span class="text-tertiary">INFO:</span>
+<span class="text-slate-400">Embedding query: "Summarize revenue growth in Q4..."</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">[14:22:01]</span>
+<span class="text-tertiary">INFO:</span>
+<span class="text-slate-400">Vector search completed in 42ms. 8 snippets retrieved.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">[14:22:02]</span>
+<span class="text-sky-400">DEBUG:</span>
+<span class="text-slate-400">Reranking results using Cross-Encoder model...</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">[14:22:02]</span>
+<span class="text-secondary">PROMPT:</span>
+<span class="text-slate-500 italic">"Use the following context to answer: [REF-001, REF-002]..."</span>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">[14:22:03]</span>
+<span class="text-tertiary">SUCCESS:</span>
+<span class="text-slate-400">Response synthesized by gpt-4o. Confidence 0.98.</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

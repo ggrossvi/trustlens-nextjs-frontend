@@ -1,49 +1,23 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
-
-html {
-  height: 100%;
+.trust-gauge {
+    background: conic-gradient(from 180deg at 50% 50%, #38bdf8 0% 94.2%, #131b2e 94.2% 100%);
 }
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/* Architectural Noir Accents */
+.noir-shadow {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.architectural-border {
+    border-image: linear-gradient(to bottom, #334155, #0f172a) 1;
 }
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.tonal-layering {
+    background: linear-gradient(180deg, rgba(23, 31, 51, 0.5) 0%, rgba(11, 19, 38, 0.5) 100%);
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
